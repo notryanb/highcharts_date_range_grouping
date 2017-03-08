@@ -1,0 +1,9 @@
+{
+  "name": "highcharts_date_range_grouping",
+  "version": "1.0.0",
+  "description": "A Highcharts plugin to group data by date ranges",
+  "main": "index.js",
+  "repository": {},
+  "author": "Ryan Blecher",
+  "license": "MIT"
+}
