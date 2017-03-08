@@ -5,6 +5,9 @@
 # Dependency Directories
 node_modules/
 
+# Build Directories
+build/
+
 # Optional eslint cache
 .eslintcache
 
