@@ -1,0 +1,19 @@
+._hDateRangeGrouping {
+  float: right;
+  margin: 0 2px 5px 2px;
+
+  &.active { background-color: darken(#efefef, 30%); }
+  &:focus  { outline: 0; }
+  &:active { outline: 0; }
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 4px;
+  border: 1px solid transparent;
+  background-image: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: center;
+}

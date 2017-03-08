@@ -1,3 +1,5 @@
+import './css/styles.scss';
+
 (function(H) {
   H.Chart.prototype.callbacks.push(function (chart) {
 

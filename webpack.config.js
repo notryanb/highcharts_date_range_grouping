@@ -1,18 +1,8 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const path = require('path');
-//const HtmlwebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ROOT_PATH = path.resolve(__dirname);
-
-var nodeModules = {};
-fs.readdirSync('node_modules')
-  .filter(function(x) {
-    return ['.bin'].indexOf(x) === -1;
-  })
-  .forEach(function(mod) {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
-
 
 const config = {
   entry: [
@@ -25,16 +15,8 @@ const config = {
   },
   devServer: {
     contentBase: path.resolve(ROOT_PATH, 'build')
-    //hot: true,
-    //inline: true,
   },
   devtool: 'source-map',
-  //plugins: [
-    //new webpack.HotModuleReplacementPlugin()
-    //new HtmlwebpackPlugin({
-      //title: 'examples'
-    //})
-  //],
   resolve: { extensions: ['.js'] },
   module: {
     rules: [
@@ -53,10 +35,15 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader','css-loader','sass-loader']
+        use: ExtractTextPlugin.extract({
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('css/styles.css')
+  ],
 }
 
-module.exports = [config];
+module.exports = config;
