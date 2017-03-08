@@ -1,8 +1,6 @@
 (function(H) {
   H.Chart.prototype.callbacks.push(function (chart) {
-    console.log('Chart: ', chart); 
     if (chart.userOptions.dateRangeGrouping) {
-    console.log('Inside plugin'); 
       const chartRender = chart.renderTo;
       const btnList = [
         { text: 'Daily',   dateObj: 'date' },
