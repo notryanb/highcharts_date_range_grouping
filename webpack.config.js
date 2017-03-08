@@ -24,13 +24,13 @@ const config = {
     filename: 'highcharts_date_range_grouping.js'
   },
   devServer: {
-    contentBase: path.resolve(ROOT_PATH, 'build'),
+    contentBase: path.resolve(ROOT_PATH, 'build')
     //hot: true,
     //inline: true,
   },
-  //devtool: 'source-map',
+  devtool: 'source-map',
   //plugins: [
-    //new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin()
     //new HtmlwebpackPlugin({
       //title: 'examples'
     //})
