@@ -7,14 +7,13 @@ const ROOT_PATH = path.resolve(__dirname);
 const config = {
   entry: [
     path.resolve(ROOT_PATH, 'src/index'),
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080'
   ],
   output: {
     path: path.resolve(ROOT_PATH, 'build'),
     publicPath: '/',
     filename: 'highcharts_date_range_grouping.js'
-  },
-  devServer: {
-    contentBase: path.resolve(ROOT_PATH, 'build')
   },
   devtool: 'source-map',
   resolve: { extensions: ['.js'] },
@@ -42,7 +41,8 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/styles.css')
+    new ExtractTextPlugin('css/styles.css'),
+    new webpack.HotModuleReplacementPlugin()
   ],
 }
 
