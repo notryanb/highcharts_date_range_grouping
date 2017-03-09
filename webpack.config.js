@@ -16,13 +16,7 @@ const entry = PRODUCTION
 
 const plugins = PRODUCTION
   ? [ new ExtractTextPlugin('css/styles.css'),
-      new webpack.optimize.UglifyJsPlugin({
-        comments: false,
-        mangle: true,
-        compress: {
-          warnings: true 
-        }
-      })
+      new webpack.optimize.UglifyJsPlugin()
     ]
   : [
       new ExtractTextPlugin('css/styles.css'),
