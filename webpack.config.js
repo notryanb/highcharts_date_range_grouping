@@ -15,7 +15,15 @@ const entry = PRODUCTION
     ];
 
 const plugins = PRODUCTION
-  ? [ new ExtractTextPlugin('css/styles.css') ]
+  ? [ new ExtractTextPlugin('css/styles.css'),
+      new webpack.optimize.UglifyJsPlugin({
+        comments: false,
+        mangle: true,
+        compress: {
+          warnings: true 
+        }
+      })
+    ]
   : [
       new ExtractTextPlugin('css/styles.css'),
       new webpack.HotModuleReplacementPlugin()
@@ -40,7 +48,7 @@ const config = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['es2015']
+              ['es2015', { modules: false }]
             ]
           }
         }]
