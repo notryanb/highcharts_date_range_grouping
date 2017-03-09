@@ -23,7 +23,7 @@
   },
   "dependencies": {},
   "scripts": {
-    "dev": "node_modules/.bin/webpack-dev-server",
+    "dev": "webpack-dev-server",
     "start": "webpack --watch",
     "build": "webpack"
   }
