@@ -3,6 +3,7 @@ import './css/styles.scss';
 if(module.hot) {
   module.hot.accept();
 }
+
 (function(H) {
   H.Chart.prototype.callbacks.push(function (chart) {
 
