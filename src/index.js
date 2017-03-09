@@ -13,10 +13,17 @@ import './css/styles.scss';
 
       var rawDataObj = {};
 
+      /*
+       * When making AJAX requests, adhere to addSeries interface
+       * to trigger this event.
+       */
       H.addEvent(chart, 'addSeries', function (e) {
         rawDataObj = rawData(chart, e.options.data, rawDataObj);
       });
       
+      /*
+       * If chart data is available upon load (non-AJAX)
+       */
       H.addEvent(chart, 'load', function (e) {
         e.target.xAxis[0].series.forEach(i => {
           let yData = i.data.map(datum => datum.y);
