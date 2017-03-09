@@ -24,7 +24,6 @@ import './css/styles.scss';
         });
       });
       
-
       btnList.forEach(grouping => {
         let btn = document.createElement('button');
         btn.innerHTML += grouping.text;
