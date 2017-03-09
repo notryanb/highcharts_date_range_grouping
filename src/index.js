@@ -16,6 +16,14 @@ import './css/styles.scss';
       H.addEvent(chart, 'addSeries', function (e) {
         rawDataObj = rawData(chart, e.options.data, rawDataObj);
       });
+      
+      H.addEvent(chart, 'load', function (e) {
+        e.target.xAxis[0].series.forEach(i => {
+          let yData = i.data.map(datum => datum.y);
+          rawDataObj = rawData(chart, yData, rawDataObj);
+        });
+      });
+      
 
       btnList.forEach(grouping => {
         let btn = document.createElement('button');
@@ -60,7 +68,7 @@ import './css/styles.scss';
 
   const updateButtons = (btn) => {
     let oldSelection = document.getElementsByClassName('_hDateRangeGrouping active');
-    if (oldSelection.length > 0) for (const i of oldSelection) { i.classList.remove('active'); };
+    if (oldSelection.length > 0) for (const i of Array.from(oldSelection)) { i.classList.remove('active'); };
     btn.classList.add('active');
   }
 
@@ -90,7 +98,6 @@ import './css/styles.scss';
   const sumMatrixColumns = (data) => {
     let columnsSum = {};
     for (let key in data) {
-
       if (data.hasOwnProperty(key)){
         columnsSum[key] = data[key].reduce((a, b) => a.map((x, i) => x + b[i]));
       }
@@ -102,17 +109,25 @@ import './css/styles.scss';
     let dates = Object.keys(data);
 
     return dates.reduce((acc, date) => {
+      let dateObj = new Date(date);
       let val;
 
       switch (grouping) {
         case 'date':
-          val = moment(date).format('MM/DD/YYYY');
+          val = dateObj.toLocaleDateString();
           break;
         case 'week':
-          val = moment(date).startOf('week').format('MM/DD/YYYY') + ' - ' + moment(date).endOf('week').format('MM/DD/YYYY');
+          var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const weekStart = new Date(dateObj);
+          const weekEnd = new Date(dateObj);
+          weekStart.setDate(dateObj.getDate() - dateObj.getDay());
+          weekEnd.setDate((6 - dateObj.getDay()) + dateObj.getDate());
+
+          val = weekStart.toLocaleDateString(undefined, formatOptions) + ' - ' + weekEnd.toLocaleDateString(undefined, formatOptions);
           break;
         case 'month': 
-          val = moment(date).format('MMM, YYYY');
+          var formatOptions = { month: 'short', year: 'numeric' };
+          val = dateObj.toLocaleString(undefined, formatOptions);
           break;
         default:
           'Error: Please use a valid date grouping';
