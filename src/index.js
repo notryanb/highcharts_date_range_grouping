@@ -124,7 +124,8 @@ if(module.hot) {
 
       switch (grouping) {
         case 'date':
-          val = dateObj.toLocaleDateString();
+          var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          val = dateObj.toLocaleDateString(undefined, formatOptions);
           break;
         case 'week':
           var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
