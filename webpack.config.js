@@ -15,7 +15,7 @@ const entry = PRODUCTION
     ];
 
 const plugins = PRODUCTION
-  ? [ new ExtractTextPlugin('css/styles.css'),
+  ? [ new ExtractTextPlugin('highcharts_date_range_grouping.css'),
       new webpack.optimize.UglifyJsPlugin()
     ]
   : [
@@ -23,13 +23,22 @@ const plugins = PRODUCTION
       new webpack.HotModuleReplacementPlugin()
     ];
 
-const config = {
-  entry: entry,
-  output: {
+const outputs = PRODUCTION
+  ? {
+    path: path.resolve(ROOT_PATH, 'dist'),
+    publicPath: '/',
+    filename: 'highcharts_date_range_grouping.min.js'
+
+  }
+  : {
     path: path.resolve(ROOT_PATH, 'build'),
     publicPath: '/',
     filename: 'highcharts_date_range_grouping.js'
-  },
+  }
+
+const config = {
+  entry: entry,
+  output: outputs,
   devtool: 'source-map',
   resolve: { extensions: ['.js'] },
   module: {

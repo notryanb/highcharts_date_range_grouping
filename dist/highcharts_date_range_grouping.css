@@ -1,0 +1,21 @@
+._hDateRangeGrouping {
+  float: right;
+  margin: 0 2px 5px 2px; }
+  ._hDateRangeGrouping.active {
+    background-color: #a3a3a3; }
+  ._hDateRangeGrouping:focus {
+    outline: 0; }
+  ._hDateRangeGrouping:active {
+    outline: 0; }
+
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 4px;
+  border: 1px solid transparent;
+  background-image: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: center; }
+
+/*# sourceMappingURL=highcharts_date_range_grouping.css.map*/
