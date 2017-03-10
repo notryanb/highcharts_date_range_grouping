@@ -1,21 +1,20 @@
 ._hDateRangeGrouping {
+  background-color: #dfdfdf;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
   float: right;
-  margin: 0 2px 5px 2px; }
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 2px 5px 2px;
+  padding: 4px; }
   ._hDateRangeGrouping.active {
-    background-color: #a3a3a3; }
+    background-color: #acacac; }
   ._hDateRangeGrouping:focus {
     outline: 0; }
   ._hDateRangeGrouping:active {
     outline: 0; }
-
-.btn {
-  display: inline-block;
-  border-radius: 4px;
-  padding: 4px;
-  border: 1px solid transparent;
-  background-image: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: center; }
 
 /*# sourceMappingURL=highcharts_date_range_grouping.css.map*/
