@@ -39,7 +39,7 @@ if(module.hot) {
         let btn = document.createElement('button');
         btn.innerHTML += grouping.text;
         btn.classList.add('btn', 'btn-xs', '_hDateRangeGrouping');
-        if (grouping.text === 'Daily') btn.classList.add('active');
+        if (grouping.dateObj === 'date') btn.classList.add('active');
         btn.addEventListener('click', (e) => {
           viewBreakdown(chart, rawDataObj, grouping.dateObj);
           updateButtons(e.target);
