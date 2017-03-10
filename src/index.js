@@ -10,7 +10,7 @@ if(module.hot) {
     if (chart.userOptions.dateRangeGrouping) {
       const chartRender = chart.renderTo;
       const btnList = [
-        { text: 'Day',   dateObj: 'date' },
+        { text: 'Day',   dateObj: 'day' },
         { text: 'Week',  dateObj: 'week'  },
         { text: 'Month', dateObj: 'month' }
       ];
@@ -39,7 +39,7 @@ if(module.hot) {
         let btn = document.createElement('button');
         btn.innerHTML += grouping.text;
         btn.classList.add('btn', 'btn-xs', '_hDateRangeGrouping');
-        if (grouping.text === 'Day') btn.classList.add('active');
+        if (grouping.dateObj === 'day') btn.classList.add('active');
         btn.addEventListener('click', (e) => {
           viewBreakdown(chart, rawDataObj, grouping.dateObj);
           updateButtons(e.target);
@@ -123,7 +123,7 @@ if(module.hot) {
       let val;
 
       switch (grouping) {
-        case 'date':
+        case 'day':
           var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
           val = dateObj.toLocaleDateString(undefined, formatOptions);
           break;
