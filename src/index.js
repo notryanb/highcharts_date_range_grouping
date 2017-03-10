@@ -4,8 +4,8 @@ if(module.hot) {
   module.hot.accept();
 }
 
-(function(H) {
-  H.Chart.prototype.callbacks.push(function (chart) {
+((H) => {
+  H.Chart.prototype.callbacks.push((chart) => {
 
     if (chart.userOptions.dateRangeGrouping) {
       const chartRender = chart.renderTo;
@@ -15,20 +15,20 @@ if(module.hot) {
         { text: 'Month', dateObj: 'month' }
       ];
 
-      var rawDataObj = {};
+      let rawDataObj = {};
 
       /*
        * When making AJAX requests, adhere to addSeries interface
        * to trigger this event.
        */
-      H.addEvent(chart, 'addSeries', function (e) {
+      H.addEvent(chart, 'addSeries', (e) => {
         rawDataObj = rawData(chart, e.options.data, rawDataObj);
       });
       
       /*
        * If chart data is available upon load (non-AJAX)
        */
-      H.addEvent(chart, 'load', function (e) {
+      H.addEvent(chart, 'load', (e) => {
         e.target.xAxis[0].series.forEach(i => {
           let yData = i.data.map(datum => datum.y);
           rawDataObj = rawData(chart, yData, rawDataObj);
