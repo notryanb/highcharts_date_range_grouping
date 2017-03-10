@@ -1,19 +1,17 @@
 ._hDateRangeGrouping {
+  background-color: #dfdfdf;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
   float: right;
+  font-size: 12px;
+  line-height: 1.5;
   margin: 0 2px 5px 2px;
+  padding: 4px;
 
-  &.active { background-color: darken(#efefef, 30%); }
+  &.active { background-color: darken(#dfdfdf, 20%); }
   &:focus  { outline: 0; }
   &:active { outline: 0; }
-}
-
-.btn {
-  display: inline-block;
-  border-radius: 4px;
-  padding: 4px;
-  border: 1px solid transparent;
-  background-image: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: center;
 }
