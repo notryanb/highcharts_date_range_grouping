@@ -9,8 +9,6 @@ broken down by day in order for the plugin to make weekly and monthly sums.
 Chart Options: `dateRangeGrouping: true`
 
 ## TODO (v1.0.0)
-- `/build` will be used for dev with [hmr]
-- `/dist` should be output of production ready (mini/uglified) code.
 - `/examples` should have an index file with some example charts against the dist file.
 - Split JS files off from index and do reasonable includes
 - Write better default styling

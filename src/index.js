@@ -10,9 +10,9 @@ if(module.hot) {
     if (chart.userOptions.dateRangeGrouping) {
       const chartRender = chart.renderTo;
       const btnList = [
-        { text: 'Daily',   dateObj: 'date' },
-        { text: 'Weekly',  dateObj: 'week'  },
-        { text: 'Monthly', dateObj: 'month' }
+        { text: 'Day',   dateObj: 'date' },
+        { text: 'Week',  dateObj: 'week'  },
+        { text: 'Month', dateObj: 'month' }
       ];
 
       var rawDataObj = {};
