@@ -7,3 +7,7 @@ broken down by day in order for the plugin to make weekly and monthly sums.
 
 ## Basic Usage
 Chart Options: `dateRangeGrouping: true`
+
+## TODO [ to make official plugin ]
+- Add webhook
+- Add repo manifest.json
