@@ -19,6 +19,6 @@ dateRangeGrouping: {
 [toLocaleDateString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) configurations are used to format the date strings in this plugin.
 
 ## Demos
-["https://jsfiddle.net/9kyw8uky/5/"](Defaults)
-["https://jsfiddle.net/9kyw8uky/6/"](Date Formatting Options)
+[https://jsfiddle.net/9kyw8uky/5/](Defaults)  
+[https://jsfiddle.net/9kyw8uky/6/](Date Formatting Options)
 
