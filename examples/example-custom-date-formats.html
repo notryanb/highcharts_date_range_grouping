@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>examples</title>
+    <link rel="stylesheet" type="text/css" href="../dist/highcharts_date_range_grouping.css">
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="../dist/highcharts_date_range_grouping.min.js"></script>
+    <style>
+      h1 {
+        text-align: center;
+        font-family: sans-serif;
+      } 
+    </style>
+  </head>
+
+
+  <body>
+    <h1>Custom Date Format Options Examples</h1>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <script type='text/javascript'>
+var categories = [
+  '2017-01-01 00:00:00 GMT-0500 (EST)',
+  '2017-01-02 00:00:00 GMT-0500 (EST)',
+  '2017-01-03 00:00:00 GMT-0500 (EST)',
+  '2017-01-04 00:00:00 GMT-0500 (EST)',
+  '2017-01-05 00:00:00 GMT-0500 (EST)',
+  '2017-01-06 00:00:00 GMT-0500 (EST)',
+  '2017-01-07 00:00:00 GMT-0500 (EST)',
+  '2017-01-08 00:00:00 GMT-0500 (EST)',
+  '2017-01-09 00:00:00 GMT-0500 (EST)',
+  '2017-01-10 00:00:00 GMT-0500 (EST)',
+  '2017-01-11 00:00:00 GMT-0500 (EST)',
+  '2017-01-12 00:00:00 GMT-0500 (EST)',
+  '2017-02-01 00:00:00 GMT-0500 (EST)',
+  '2017-02-02 00:00:00 GMT-0500 (EST)',
+  '2017-02-03 00:00:00 GMT-0500 (EST)',
+  '2017-02-04 00:00:00 GMT-0500 (EST)',
+  '2017-02-05 00:00:00 GMT-0500 (EST)',
+  '2017-02-06 00:00:00 GMT-0500 (EST)',
+  '2017-02-07 00:00:00 GMT-0500 (EST)',
+  '2017-02-08 00:00:00 GMT-0500 (EST)',
+  '2017-02-09 00:00:00 GMT-0500 (EST)',
+  '2017-02-10 00:00:00 GMT-0500 (EST)',
+  '2017-02-11 00:00:00 GMT-0500 (EST)',
+  '2017-02-12 00:00:00 GMT-0500 (EST)',
+  '2017-03-01 00:00:00 GMT-0500 (EST)',
+  '2017-03-02 00:00:00 GMT-0500 (EST)',
+  '2017-03-03 00:00:00 GMT-0500 (EST)',
+  '2017-03-04 00:00:00 GMT-0500 (EST)',
+  '2017-03-05 00:00:00 GMT-0500 (EST)',
+  '2017-03-06 00:00:00 GMT-0500 (EST)',
+  '2017-03-07 00:00:00 GMT-0500 (EST)',
+  '2017-03-08 00:00:00 GMT-0500 (EST)',
+  '2017-03-09 00:00:00 GMT-0500 (EST)',
+  '2017-03-10 00:00:00 GMT-0500 (EST)',
+  '2017-03-11 00:00:00 GMT-0500 (EST)',
+  '2017-03-12 00:00:00 GMT-0500 (EST)'
+  ].map(function(date) {
+    let formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+    return new Date(date).toLocaleDateString(undefined, formatOptions); 
+  });
+
+Highcharts.chart('container', {
+  chart: {
+    type: 'line'
+  },
+  dateRangeGrouping: {
+    dayFormat: { month: 'numeric', day: 'numeric', year: '2-digits' },
+    weekFormat: { month: 'numeric', day: 'numeric', year: '2-digits' },
+    monthFormat: { month: 'numeric', year: '2-digits'  }
+  },
+  title: {
+    text: 'Some Data'
+  },
+  xAxis: {
+    categories: categories
+  },
+  yAxis: {
+    title: {
+      text: 'Temperature (°C)'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: 'City A',
+    data: [
+      7.0, 6.0, 9.0, 14.0, 18.0, 21.0, 25.0, 26.0, 23.0, 18.0, 13.0, 9.0,
+      3.0, 4.0, 5.0, 8.0, 11.0, 15.0, 17.0, 16.0, 14.0, 10.0, 6.0, 4.0,
+      31.0, 43.0, 34.0, 22.0, 19.0, 11.0, 20.0, 76.0, 54.0, 16.0, 26.0, 14.0
+    ]
+  }, {
+    name: 'City B',
+    data: [
+      3.0, 4.0, 5.0, 8.0, 11.0, 15.0, 17.0, 16.0, 14.0, 10.0, 6.0, 4.0,
+      7.0, 6.0, 9.0, 14.0, 18.0, 21.0, 25.0, 26.0, 23.0, 18.0, 13.0, 9.0,
+      32.0, 53.0, 14.0, 27.0, 19.0, 14.0, 25.0, 66.0, 51.0, 36.0, 26.0, 14.0
+    ]
+  }]
+});
+    </script>
+  </body>
+</html>
