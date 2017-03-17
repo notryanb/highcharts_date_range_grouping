@@ -61,7 +61,7 @@ if(module.hot) {
   }
 
   const viewBreakdown = (chart, data, dateObj) => {
-    const dateFormat = chart.userOptions.dateRangeGrouping.dateFormat
+    const dateFormat = chart.userOptions.dateRangeGrouping;
     const grouped = groupByDateObject(dateFormat, data, dateObj);
     const sum = sumMatrixColumns(grouped);
     const xAxis = xAxisCategories(sum);
