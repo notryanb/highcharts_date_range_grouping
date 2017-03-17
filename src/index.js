@@ -109,7 +109,7 @@ if(module.hot) {
     let columnsSum = {};
     for (let key in data) {
       if (data.hasOwnProperty(key)){
-        columnsSum[key] = data[key].reduce((a, b) => a.map((x, i) => x + b[i]));
+        columnsSum[key] = data[key].reduce((acc, val) => acc.map((item, idx) => item + val[idx]));
       }
     }
     return columnsSum;
