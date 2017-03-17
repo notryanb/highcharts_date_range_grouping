@@ -6,4 +6,11 @@ This plugin is meant to help group data over a time domain. The raw dataset shou
 broken down by day in order for the plugin to make weekly and monthly sums.
 
 ## Basic Usage
-Chart Options: `dateRangeGrouping: true`
+Chart Options: `dateRangeGrouping: true`  
+Chart Options `dateRangeGrouping: {
+  dayFormat: { month: 'numeric', day: 'numeric', year: 'numeric' },
+  weekFormat: { month: 'numeric', day: 'numeric', year: 'numeric' },                      
+  monthFormat: { month: 'numeric', year: 'numeric'  }   
+}`
+
+[toLocaleDateString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) configurations are used to format the date strings in this plugin.
