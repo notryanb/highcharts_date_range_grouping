@@ -11,7 +11,7 @@ if(module.hot) {
       const chartRender = chart.renderTo;
       const btnList = [
         { text: 'Day',   dateObj: 'day' },
-        { text: 'Week',  dateObj: 'week'  },
+        { text: 'Week',  dateObj: 'week' },
         { text: 'Month', dateObj: 'month' }
       ];
 
@@ -61,7 +61,8 @@ if(module.hot) {
   }
 
   const viewBreakdown = (chart, data, dateObj) => {
-    const grouped = groupByDateObject(data, dateObj);
+    const dateFormat = chart.userOptions.dateRangeGrouping.dateFormat
+    const grouped = groupByDateObject(dateFormat, data, dateObj);
     const sum = sumMatrixColumns(grouped);
     const xAxis = xAxisCategories(sum);
     const yAxis = yAxisSeries(sum);
@@ -115,8 +116,13 @@ if(module.hot) {
     return columnsSum;
   }
 
-  const groupByDateObject = (data, grouping) => {
+  const groupByDateObject = (dateFormat, data, grouping) => {
     let dates = Object.keys(data);
+    const defaultFormats = {
+      dayFormat: { month: '2-digit', day: '2-digit', year: 'numeric' },
+      weekFormat: { month: '2-digit', day: '2-digit', year: 'numeric' },
+      monthFormat: { month: 'short', year: 'numeric' } 
+    }
 
     return dates.reduce((acc, date) => {
       let dateObj = new Date(date);
@@ -124,11 +130,11 @@ if(module.hot) {
 
       switch (grouping) {
         case 'day':
-          var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          var formatOptions = dateFormat.dayFormat || defaultFormats.dayFormat;
           val = dateObj.toLocaleDateString(undefined, formatOptions);
           break;
         case 'week':
-          var formatOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          var formatOptions = dateFormat.weekFormat || defaultFormats.weekFormat;
           const weekStart = new Date(dateObj);
           const weekEnd = new Date(dateObj);
           weekStart.setDate(dateObj.getDate() - dateObj.getDay());
@@ -137,7 +143,7 @@ if(module.hot) {
           val = weekStart.toLocaleDateString(undefined, formatOptions) + ' - ' + weekEnd.toLocaleDateString(undefined, formatOptions);
           break;
         case 'month': 
-          var formatOptions = { month: 'short', year: 'numeric' };
+          var formatOptions = dateFormat.monthFormat || defaultFormats.monthFormat;
           val = dateObj.toLocaleString(undefined, formatOptions);
           break;
         default:
