@@ -1,0 +1,39 @@
+{
+  "name": "Highcharts Date Range Grouping",
+  "version": "1.0.0",
+  "title": "Date Range Grouping",
+  "author": {
+    "name": "Ryan Blecher",
+    "url": "https://github.com/notryanb"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/notryanb/highcharts_date_range_grouping/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "highcharts": "Highcharts 4+"
+  },
+  "type": "plugin",
+  "description": "",
+  "keywords": [
+    "date range grouping",
+    "date grouping"
+  ],
+  "homepage": "https://github.com/notryanb/highcharts_date_range_grouping",
+  "docs": "https://github.com/notryanb/highcharts_date_range_grouping",
+  "bugs": "https://github.com/notryanb/highcharts_date_range_grouping/issues",
+  "download": "https://github.com/notryanb/highcharts_date_range_grouping/archive/master.zip",
+  "demo": [
+    "",
+    ""
+  ],
+  "maintainers": [
+    {
+      "name": "Ryan Blecher",
+      "email": "notryanb@gmail.com",
+      "url": ""
+    }
+  ]
+}
