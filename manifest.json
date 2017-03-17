@@ -16,7 +16,7 @@
     "highcharts": "Highcharts 4+"
   },
   "type": "plugin",
-  "description": "",
+  "description": "Group time domain data by week / month",
   "keywords": [
     "date range grouping",
     "date grouping"
